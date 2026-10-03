@@ -1,10 +1,4 @@
-type Props = {
-  id: string;
-  eyebrow: string;
-  title: string;
-  description?: string;
-  children: React.ReactNode;
-};
+import type { ReactNode } from "react";
 
 export default function Section({
   id,
@@ -12,25 +6,32 @@ export default function Section({
   title,
   description,
   children,
-}: Props) {
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description?: string;
+  children: ReactNode;
+}) {
   return (
-    <section id={id} className="py-20 md:py-28 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-10 md:mb-14">
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-[color:var(--accent)]">
-            {eyebrow}
-          </div>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            {title}
-          </h2>
-          {description && (
-            <p className="mt-4 max-w-2xl text-[color:var(--muted)] leading-relaxed">
-              {description}
-            </p>
-          )}
-        </div>
-        {children}
-      </div>
+    <section
+      id={id}
+      aria-labelledby={`${id}-title`}
+      className="relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 sm:py-28"
+    >
+      <p className="eyebrow">{eyebrow}</p>
+      <h2
+        id={`${id}-title`}
+        className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl"
+      >
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-[color:var(--muted)]">
+          {description}
+        </p>
+      )}
+      <div className="mt-10">{children}</div>
     </section>
   );
 }
