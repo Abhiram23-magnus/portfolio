@@ -22,7 +22,7 @@ export default function Certifications() {
               Credential 0{i + 1}
             </p>
             <h3 className="mt-3 pr-8 text-lg font-semibold leading-snug">{c.name}</h3>
-            <p className="mt-2 text-sm text-[#c4d2dd]">{c.issuer}</p>
+            <p className="mt-2 text-sm text-[#C9C5B8]">{c.issuer}</p>
             <p className="mt-4 font-mono text-sm text-[color:var(--muted)]">{c.date}</p>
           </li>
         ))}

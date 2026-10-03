@@ -40,7 +40,7 @@ export default function Skills() {
                     <li key={item}>
                       <button
                         type="button"
-                        className="chip cursor-pointer !border-[color:var(--border-strong)] !text-[color:var(--accent-strong)] hover:!bg-[rgba(34,211,238,0.12)]"
+                        className="chip cursor-pointer !border-[color:var(--border-strong)] !text-[color:var(--accent-strong)] hover:!bg-[rgba(212,162,78,0.12)]"
                         aria-pressed={active === kind}
                         onMouseEnter={() => setActive(kind)}
                         onFocus={() => setActive(kind)}

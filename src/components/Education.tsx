@@ -17,7 +17,7 @@ export default function Education() {
                 <p className="font-mono text-sm text-[color:var(--muted)]">{e.period}</p>
               </div>
               <p className="mt-1 text-[color:var(--accent-strong)]">{e.institution}</p>
-              <p className="mt-2 text-sm text-[#c4d2dd]">{e.detail}</p>
+              <p className="mt-2 text-sm text-[#C9C5B8]">{e.detail}</p>
 
               {e.coursework.length > 0 && (
                 <>

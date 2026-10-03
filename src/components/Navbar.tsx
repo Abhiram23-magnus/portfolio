@@ -59,7 +59,7 @@ export default function Navbar() {
                 aria-current={active === n.id ? "location" : undefined}
                 className={`rounded-full px-3 py-1.5 text-[13px] transition-colors ${
                   active === n.id
-                    ? "bg-[rgba(34,211,238,0.14)] text-[color:var(--accent-strong)]"
+                    ? "bg-[rgba(212,162,78,0.14)] text-[color:var(--accent-strong)]"
                     : "text-[color:var(--muted)] hover:text-white"
                 }`}
               >
@@ -107,7 +107,7 @@ export default function Navbar() {
                   aria-current={active === n.id ? "location" : undefined}
                   className={`block rounded-lg px-3 py-3 text-base ${
                     active === n.id
-                      ? "bg-[rgba(34,211,238,0.14)] text-[color:var(--accent-strong)]"
+                      ? "bg-[rgba(212,162,78,0.14)] text-[color:var(--accent-strong)]"
                       : "text-[color:var(--foreground)]"
                   }`}
                 >

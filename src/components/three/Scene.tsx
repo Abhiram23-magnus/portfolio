@@ -224,8 +224,8 @@ function Traces({ tier }: { tier: PerfTier }) {
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial
           ref={matRef}
-          color="#0b2a33"
-          emissive="#22d3ee"
+          color="#2a1a10"
+          emissive="#C0764A"
           emissiveIntensity={0.3}
           roughness={0.5}
           metalness={0.6}
@@ -233,7 +233,7 @@ function Traces({ tier }: { tier: PerfTier }) {
       </instancedMesh>
       <instancedMesh ref={pulseRef} args={[undefined, undefined, pulseCount]} frustumCulled={false}>
         <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color="#8ff3ff" toneMapped={false} />
+        <meshBasicMaterial color="#F0CF8A" toneMapped={false} />
       </instancedMesh>
     </group>
   );
@@ -315,8 +315,8 @@ function McuChip({ tier }: { tier: PerfTier }) {
           <planeGeometry args={[0.7, 0.7]} />
           <meshStandardMaterial
             ref={dieRef}
-            color="#06222a"
-            emissive="#22d3ee"
+            color="#1d160c"
+            emissive="#D4A24E"
             emissiveIntensity={0.4}
             roughness={0.3}
           />
@@ -345,7 +345,7 @@ function WifiModule() {
   return (
     <group position={[x, 0, z]}>
       <RoundedBox args={[2.6, 0.12, 1.6]} radius={0.03} position={[0, 0.06, 0]}>
-        <meshStandardMaterial color="#0a1a22" roughness={0.5} metalness={0.4} />
+        <meshStandardMaterial color="#1B4A36" roughness={0.55} metalness={0.2} />
       </RoundedBox>
       <RoundedBox args={[1.0, 0.16, 1.0]} radius={0.04} position={[-0.45, 0.2, 0]}>
         <meshStandardMaterial color="#c3ccd4" metalness={0.95} roughness={0.3} />
@@ -357,7 +357,7 @@ function WifiModule() {
           <meshStandardMaterial color="#d6a35c" metalness={0.9} roughness={0.35} />
         </mesh>
       ))}
-      <Blink position={[1.1, 0.14, 0.62]} color="#34d399" speed={2.2} />
+      <Blink position={[1.1, 0.14, 0.62]} color="#5FAE8A" speed={2.2} />
     </group>
   );
 }
@@ -384,7 +384,7 @@ function Scope() {
   const lineObj = useMemo(() => {
     const g = new THREE.BufferGeometry();
     g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(96 * 3), 3));
-    const m = new THREE.LineBasicMaterial({ color: "#5ef0ff", toneMapped: false });
+    const m = new THREE.LineBasicMaterial({ color: "#E3B968", toneMapped: false });
     return new THREE.Line(g, m);
   }, []);
 
@@ -408,19 +408,19 @@ function Scope() {
       </RoundedBox>
       <mesh position={[0, 0, 0.065]}>
         <planeGeometry args={[3.0, 1.6]} />
-        <meshStandardMaterial color="#04100f" emissive="#052a2e" emissiveIntensity={0.7} />
+        <meshStandardMaterial color="#060d09" emissive="#0f2418" emissiveIntensity={0.7} />
       </mesh>
       {/* graticule */}
       {Array.from({ length: 5 }, (_, i) => (
         <mesh key={`h${i}`} position={[0, -0.64 + i * 0.32, 0.07]}>
           <planeGeometry args={[3.0, 0.004]} />
-          <meshBasicMaterial color="#14656d" transparent opacity={0.55} />
+          <meshBasicMaterial color="#2F5A47" transparent opacity={0.6} />
         </mesh>
       ))}
       {Array.from({ length: 9 }, (_, i) => (
         <mesh key={`v${i}`} position={[-1.2 + i * 0.3, 0, 0.07]}>
           <planeGeometry args={[0.004, 1.6]} />
-          <meshBasicMaterial color="#14656d" transparent opacity={0.55} />
+          <meshBasicMaterial color="#2F5A47" transparent opacity={0.6} />
         </mesh>
       ))}
       <group position={[0, 0, 0.08]}>
@@ -444,7 +444,7 @@ function CamModule() {
   return (
     <group position={[x, 0, z]}>
       <RoundedBox args={[2.2, 0.1, 2.2]} radius={0.04} position={[0, 0.05, 0]}>
-        <meshStandardMaterial color="#0a1a22" roughness={0.5} metalness={0.4} />
+        <meshStandardMaterial color="#1B4A36" roughness={0.55} metalness={0.2} />
       </RoundedBox>
       <mesh position={[0, 0.3, 0]}>
         <cylinderGeometry args={[0.55, 0.6, 0.4, 32]} />
@@ -452,7 +452,7 @@ function CamModule() {
       </mesh>
       <mesh ref={lens} position={[0, 0.51, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[0.18, 0.42, 32]} />
-        <meshStandardMaterial color="#0b1b33" emissive="#2a6df4" emissiveIntensity={0.7} side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#1a120a" emissive="#8a5a2a" emissiveIntensity={0.7} side={THREE.DoubleSide} />
       </mesh>
       <mesh position={[0, 0.515, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <circleGeometry args={[0.18, 24]} />
@@ -529,7 +529,7 @@ function FloatingParts({ tier }: { tier: PerfTier }) {
             {p.kind === 3 && (
               <mesh>
                 <sphereGeometry args={[0.1, 12, 12]} />
-                <meshStandardMaterial color="#22d3ee" emissive="#22d3ee" emissiveIntensity={1.6} />
+                <meshStandardMaterial color="#D4A24E" emissive="#D4A24E" emissiveIntensity={1.2} />
               </mesh>
             )}
           </group>
@@ -592,7 +592,7 @@ function CameraRig() {
 /* Lights that shift tint with scroll                                   */
 /* ------------------------------------------------------------------ */
 
-const TINTS = ["#22d3ee", "#38bdf8", "#6ee7b7", "#60a5fa"].map((c) => new THREE.Color(c));
+const TINTS = ["#D4A24E", "#C0764A", "#5FAE8A", "#D4A24E"].map((c) => new THREE.Color(c));
 const _tint = new THREE.Color();
 
 function Lights() {
@@ -606,8 +606,8 @@ function Lights() {
   return (
     <>
       <ambientLight intensity={0.35} />
-      <directionalLight position={[5, 8, 4]} intensity={0.9} color="#cfe9ff" />
-      <pointLight ref={key} position={[2.4, 3, 1]} intensity={14} distance={16} color="#22d3ee" />
+      <directionalLight position={[5, 8, 4]} intensity={0.9} color="#FFF1D6" />
+      <pointLight ref={key} position={[2.4, 3, 1]} intensity={10} distance={16} color="#D4A24E" />
     </>
   );
 }
@@ -621,17 +621,17 @@ function Board() {
     <>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, -7]}>
         <planeGeometry args={[60, 60]} />
-        <meshStandardMaterial color="#070d13" roughness={0.9} metalness={0.2} />
+        <meshStandardMaterial color="#09100c" roughness={0.9} metalness={0.2} />
       </mesh>
       <Grid
         position={[0, 0, -7]}
         args={[60, 60]}
         cellSize={0.5}
         cellThickness={0.5}
-        cellColor="#0f2b36"
+        cellColor="#15221b"
         sectionSize={2.5}
         sectionThickness={1}
-        sectionColor="#14606c"
+        sectionColor="#2F5A47"
         fadeDistance={26}
         fadeStrength={1.4}
         infiniteGrid
@@ -656,7 +656,7 @@ export default function Scene({ initialTier }: { initialTier: Exclude<PerfTier, 
       frameloop="always"
       aria-hidden
       onCreated={({ scene }) => {
-        scene.fog = new THREE.Fog("#05080c", 14, 34);
+        scene.fog = new THREE.Fog("#0B100E", 14, 34);
       }}
     >
       {/* Automatic degradation: drop quality if the frame rate falls */}
@@ -677,7 +677,7 @@ export default function Scene({ initialTier }: { initialTier: Exclude<PerfTier, 
       <CamModule />
       <FloatingParts tier={tier} />
       {tier === "high" && (
-        <Sparkles count={70} scale={[22, 7, 24]} position={[0, 2.5, -7]} size={2} speed={0.25} opacity={0.5} color="#7dd3fc" />
+        <Sparkles count={70} scale={[22, 7, 24]} position={[0, 2.5, -7]} size={2} speed={0.25} opacity={0.5} color="#C9A86A" />
       )}
       <CameraRig />
     </Canvas>

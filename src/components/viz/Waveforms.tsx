@@ -7,11 +7,11 @@ import { usePrefersReducedMotion } from "@/lib/hooks";
 export type SignalKind = "uart" | "spi" | "i2c" | "adc" | "rtos" | "pwm" | "isr";
 
 const C = {
-  hi: "#67e8f9",
-  lo: "#3b8a99",
-  grid: "rgba(120,190,210,0.12)",
-  label: "#8fa6b6",
-  warn: "#fbbf24",
+  hi: "#E3B968",
+  lo: "#5FAE8A",
+  grid: "rgba(150,175,160,0.12)",
+  label: "#9AA69C",
+  warn: "#C0764A",
 };
 
 /** Build a digital waveform path from bit levels. One bit = `w` units. */
@@ -68,7 +68,7 @@ function Frame({ children, caption }: { children: React.ReactNode; caption: stri
             <rect x="26" y="0" width="174" height="90" />
           </clipPath>
         </defs>
-        <rect x="0" y="0" width="200" height="90" fill="rgba(3,10,14,0.7)" rx="6" />
+        <rect x="0" y="0" width="200" height="90" fill="rgba(8,12,10,0.72)" rx="6" />
         <g stroke={C.grid} strokeWidth="0.5">
           {[15, 30, 45, 60, 75].map((y) => (
             <line key={y} x1="0" x2="200" y1={y} y2={y} />
@@ -232,11 +232,11 @@ function Isr() {
           {(dx) => (
             <g transform={`translate(${dx} 0)`} fill="none" strokeWidth="1.4" strokeLinejoin="round">
               <path d="M30 28 H70 V16 H78 V28 H150 V16 H158 V28 H200" stroke={C.warn} />
-              <rect x="30" y="50" width="42" height="12" fill="rgba(103,232,249,0.18)" stroke={C.hi} rx="2" />
-              <rect x="72" y="50" width="14" height="12" fill="rgba(251,191,36,0.3)" stroke={C.warn} rx="2" />
-              <rect x="86" y="50" width="72" height="12" fill="rgba(103,232,249,0.18)" stroke={C.hi} rx="2" />
-              <rect x="158" y="50" width="14" height="12" fill="rgba(251,191,36,0.3)" stroke={C.warn} rx="2" />
-              <rect x="172" y="50" width="28" height="12" fill="rgba(103,232,249,0.18)" stroke={C.hi} rx="2" />
+              <rect x="30" y="50" width="42" height="12" fill="rgba(227,185,104,0.18)" stroke={C.hi} rx="2" />
+              <rect x="72" y="50" width="14" height="12" fill="rgba(192,118,74,0.32)" stroke={C.warn} rx="2" />
+              <rect x="86" y="50" width="72" height="12" fill="rgba(227,185,104,0.18)" stroke={C.hi} rx="2" />
+              <rect x="158" y="50" width="14" height="12" fill="rgba(192,118,74,0.32)" stroke={C.warn} rx="2" />
+              <rect x="172" y="50" width="28" height="12" fill="rgba(227,185,104,0.18)" stroke={C.hi} rx="2" />
               <text x="40" y="72" fill={C.label} fontSize="6" fontFamily="monospace">main()</text>
               <text x="73" y="72" fill={C.label} fontSize="6" fontFamily="monospace">ISR</text>
             </g>
@@ -277,9 +277,9 @@ const SEQ: Task[][] = [
 ];
 
 const stateColor: Record<TaskState, string> = {
-  READY: "border-sky-400/60 text-sky-200",
-  RUNNING: "border-emerald-400/70 text-emerald-200 bg-emerald-400/10",
-  BLOCKED: "border-amber-400/60 text-amber-200",
+  READY: "border-[#9AA69C]/50 text-[#DAD6CA]",
+  RUNNING: "border-[#5FAE8A]/70 text-[#BFE3D0] bg-[#5FAE8A]/10",
+  BLOCKED: "border-[#C0764A]/60 text-[#E6B08C]",
 };
 
 export function RtosScheduler({ compact = false }: { compact?: boolean }) {
@@ -303,7 +303,7 @@ export function RtosScheduler({ compact = false }: { compact?: boolean }) {
       role="img"
       aria-label="Animated RTOS scheduler: tasks move between READY, RUNNING and BLOCKED states while the scheduler picks the highest priority ready task on each tick"
     >
-      <div className="mb-2 flex items-center justify-between font-mono text-[11px] text-[#8fa6b6]">
+      <div className="mb-2 flex items-center justify-between font-mono text-[11px] text-[#9AA69C]">
         <span>SYSTEM TICK #{String(step + 1).padStart(2, "0")}</span>
         <span>{running ? `scheduler → ${running.id}` : next ? `next → ${next.id}` : "idle"}</span>
       </div>
@@ -311,7 +311,7 @@ export function RtosScheduler({ compact = false }: { compact?: boolean }) {
         <div className={`grid grid-cols-3 gap-2 ${compact ? "" : "sm:gap-3"}`}>
           {STATES.map((s) => (
             <div key={s} className="rounded-lg border border-white/10 bg-black/30 p-2">
-              <div className="mb-2 text-center font-mono text-[10px] tracking-widest text-[#8fa6b6]">{s}</div>
+              <div className="mb-2 text-center font-mono text-[10px] tracking-widest text-[#9AA69C]">{s}</div>
               <div className="flex min-h-[88px] flex-col gap-1.5">
                 {tasks
                   .filter((t) => t.state === s)

@@ -25,7 +25,7 @@ export default function Experience() {
               <p className="font-mono text-sm text-[color:var(--muted)]">{e.period}</p>
             </div>
 
-            <ul className="mt-5 list-disc space-y-2 pl-5 text-[0.95rem] leading-relaxed text-[#d0dde7] marker:text-[color:var(--accent)]">
+            <ul className="mt-5 list-disc space-y-2 pl-5 text-[0.95rem] leading-relaxed text-[#D5D1C5] marker:text-[color:var(--accent)]">
               {e.bullets.map((b) => (
                 <li key={b}>{b}</li>
               ))}

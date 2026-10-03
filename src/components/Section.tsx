@@ -22,7 +22,7 @@ export default function Section({
       <p className="eyebrow">{eyebrow}</p>
       <h2
         id={`${id}-title`}
-        className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl"
+        className="font-display mt-3 max-w-3xl text-4xl sm:text-5xl"
       >
         {title}
       </h2>

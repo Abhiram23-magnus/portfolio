@@ -34,8 +34,8 @@ function EcgWave() {
         role="img"
         aria-label="Animated ECG waveform showing P, QRS and T waves"
       >
-        <rect x="0" y="0" width="200" height="90" rx="6" fill="rgba(3,10,14,0.7)" />
-        <g stroke="rgba(120,190,210,0.12)" strokeWidth="0.5">
+        <rect x="0" y="0" width="200" height="90" rx="6" fill="rgba(8,12,10,0.72)" />
+        <g stroke="rgba(150,175,160,0.12)" strokeWidth="0.5">
           {Array.from({ length: 10 }, (_, i) => (
             <line key={`v${i}`} x1={i * 20} x2={i * 20} y1="0" y2="90" />
           ))}
@@ -45,10 +45,10 @@ function EcgWave() {
         </g>
         <motion.g style={{ x: reduced ? 0 : x }}>
           <g className="scroll-x">
-            <path d={d} fill="none" stroke="#34d399" strokeWidth="1.5" strokeLinejoin="round" />
+            <path d={d} fill="none" stroke="#5FAE8A" strokeWidth="1.5" strokeLinejoin="round" />
           </g>
         </motion.g>
-        <g fontFamily="monospace" fontSize="6" fill="#8fa6b6">
+        <g fontFamily="monospace" fontSize="6" fill="#9AA69C">
           <text x="6" y="12">ECG · single lead</text>
         </g>
       </svg>
@@ -84,7 +84,7 @@ function CamBoard() {
         }}
       >
         {/* board */}
-        <div className="absolute inset-0 rounded-md border border-cyan-300/30 bg-[#0a1c24] shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+        <div className="absolute inset-0 rounded-md border border-[#C0764A]/40 bg-[#1B4A36]">
           <svg viewBox="0 0 190 120" className="absolute inset-0 h-full w-full" aria-hidden>
             <path className="trace trace-dash" d="M20 20 H70 V60 H120" fill="none" strokeWidth="1.5" />
             <path className="trace trace-dash" d="M20 100 H90 V80 H160" fill="none" strokeWidth="1.5" />
@@ -98,11 +98,11 @@ function CamBoard() {
         />
         {/* lens stack */}
         <div
-          className="absolute right-[26px] top-[26px] h-[56px] w-[56px] rounded-full border border-cyan-200/40 bg-[#0d1218]"
+          className="absolute right-[26px] top-[26px] h-[56px] w-[56px] rounded-full border border-[#D4A24E]/50 bg-[#0d1218]"
           style={{ transform: "translateZ(22px)" }}
         >
           <div
-            className="absolute inset-[10px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#3b6fe0,#050912_70%)]"
+            className="absolute inset-[10px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#8a6a30,#050912_70%)]"
             style={{ transform: "translateZ(10px)" }}
           />
         </div>
@@ -194,9 +194,9 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         <Visual id={p.id} />
       </div>
 
-      <p className="mt-5 text-sm leading-relaxed text-[#c4d2dd]">{p.summary}</p>
+      <p className="mt-5 text-sm leading-relaxed text-[#C9C5B8]">{p.summary}</p>
       {p.note && (
-        <p className="mt-3 rounded-lg border border-amber-300/25 bg-amber-300/5 px-3 py-2 text-xs text-amber-100/90">
+        <p className="mt-3 rounded-lg border border-[#D4A24E]/30 bg-[#D4A24E]/5 px-3 py-2 text-xs text-[#EBD9B0]">
           {p.note}
         </p>
       )}
@@ -239,7 +239,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#c4d2dd] marker:text-[color:var(--accent)]">
+            <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#C9C5B8] marker:text-[color:var(--accent)]">
               {p.bullets.map((b) => (
                 <li key={b}>{b}</li>
               ))}

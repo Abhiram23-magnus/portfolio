@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05080c;
-  --foreground: #e8eef4;
-  --surface: rgba(8, 13, 18, 0.84);
-  --surface-solid: #0a1016;
-  --border: rgba(120, 170, 190, 0.16);
-  --border-strong: rgba(120, 200, 220, 0.34);
-  --muted: #93a4b3;
-  --accent: #22d3ee;
-  --accent-strong: #67e8f9;
-  --accent-ink: #03161c;
-  --accent-glow: rgba(34, 211, 238, 0.22);
-  --ok: #34d399;
-  --warn: #fbbf24;
-  --bad: #f87171;
+  --background: #0b100e;
+  --foreground: #ece8dd;
+  --surface: rgba(17, 24, 21, 0.86);
+  --surface-solid: #111815;
+  --border: rgba(160, 185, 170, 0.14);
+  --border-strong: rgba(170, 195, 180, 0.3);
+  --muted: #9aa69c;
+  --accent: #d4a24e; /* ENIG gold: the one accent */
+  --accent-strong: #e3b968;
+  --accent-ink: #0b100e;
+  --accent-glow: rgba(212, 162, 78, 0.16);
+  --copper: #c0764a;
+  --mask: #2f5a47;
+  --ok: #5fae8a; /* solder-mask green: status / signal */
+  --warn: #c0764a;
+  --bad: #c0764a;
 }
 
 @theme inline {
@@ -23,6 +25,7 @@
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-instrument-serif);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -41,7 +44,7 @@ body {
 }
 
 ::selection {
-  background: rgba(34, 211, 238, 0.3);
+  background: rgba(212, 162, 78, 0.3);
 }
 
 /* ---------- accessibility ---------- */
@@ -104,10 +107,10 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(900px 520px at 78% 12%, rgba(34, 211, 238, 0.12), transparent 60%),
-    radial-gradient(700px 480px at 8% 80%, rgba(56, 189, 248, 0.07), transparent 60%),
-    linear-gradient(rgba(120, 190, 210, 0.07) 1px, transparent 1px) 0 0 / 44px 44px,
-    linear-gradient(90deg, rgba(120, 190, 210, 0.07) 1px, transparent 1px) 0 0 / 44px 44px;
+    radial-gradient(900px 520px at 78% 12%, rgba(47, 90, 71, 0.2), transparent 60%),
+    radial-gradient(700px 480px at 8% 80%, rgba(192, 118, 74, 0.07), transparent 60%),
+    linear-gradient(rgba(160, 185, 170, 0.06) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(90deg, rgba(160, 185, 170, 0.06) 1px, transparent 1px) 0 0 / 44px 44px;
   -webkit-mask-image: radial-gradient(ellipse at 60% 30%, #000 25%, transparent 80%);
   mask-image: radial-gradient(ellipse at 60% 30%, #000 25%, transparent 80%);
 }
@@ -116,21 +119,21 @@ body {
 .scene-tint {
   position: absolute;
   inset: 0;
-  background: radial-gradient(1000px 600px at 70% 20%, rgba(34, 211, 238, 0.06), transparent 65%);
+  background: radial-gradient(1000px 600px at 70% 20%, rgba(47, 90, 71, 0.16), transparent 65%);
   transition: background 0.9s ease;
 }
 [data-section="skills"] .scene-tint {
-  background: radial-gradient(1000px 600px at 20% 30%, rgba(56, 189, 248, 0.09), transparent 65%);
+  background: radial-gradient(1000px 600px at 20% 30%, rgba(192, 118, 74, 0.07), transparent 65%);
 }
 [data-section="projects"] .scene-tint {
-  background: radial-gradient(1000px 600px at 60% 60%, rgba(52, 211, 153, 0.07), transparent 65%);
+  background: radial-gradient(1000px 600px at 60% 60%, rgba(47, 90, 71, 0.18), transparent 65%);
 }
 [data-section="experience"] .scene-tint,
 [data-section="education"] .scene-tint {
-  background: radial-gradient(1000px 600px at 30% 70%, rgba(96, 165, 250, 0.08), transparent 65%);
+  background: radial-gradient(1000px 600px at 30% 70%, rgba(212, 162, 78, 0.05), transparent 65%);
 }
 [data-section="contact"] .scene-tint {
-  background: radial-gradient(1000px 600px at 50% 40%, rgba(34, 211, 238, 0.1), transparent 65%);
+  background: radial-gradient(1000px 600px at 50% 40%, rgba(212, 162, 78, 0.07), transparent 65%);
 }
 
 /* Keep body copy readable over the scene. */
@@ -188,7 +191,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
 }
 .btn-primary:hover {
   background: var(--accent-strong);
-  box-shadow: 0 0 0 6px var(--accent-glow);
+  box-shadow: 0 0 0 4px var(--accent-glow);
 }
 .btn-ghost {
   border: 1px solid var(--border-strong);
@@ -197,7 +200,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
 }
 .btn-ghost:hover {
   border-color: var(--accent);
-  background: rgba(34, 211, 238, 0.08);
+  background: rgba(212, 162, 78, 0.08);
 }
 
 .chip {
@@ -207,7 +210,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
   border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
-  color: #c4d2dd;
+  color: #c9c5b8;
   font-family: var(--font-mono), monospace;
   font-size: 0.75rem;
   line-height: 1.1;
@@ -254,12 +257,12 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
   padding: 0.55rem 0.7rem;
   border: 1px solid var(--border-strong);
   border-radius: 0.6rem;
-  background: rgba(8, 18, 24, 0.85);
+  background: rgba(11, 16, 14, 0.9);
   font-family: var(--font-mono), monospace;
   font-size: 0.72rem;
   line-height: 1.2;
   text-align: center;
-  color: #d5e4ee;
+  color: #dad6ca;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,7 +273,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
   min-width: 14px;
   align-self: center;
   height: 2px;
-  background: linear-gradient(90deg, rgba(34, 211, 238, 0.15), rgba(34, 211, 238, 0.5));
+  background: linear-gradient(90deg, rgba(192, 118, 74, 0.2), rgba(192, 118, 74, 0.65));
 }
 .flow-link::after {
   content: "";
@@ -282,7 +285,6 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
   margin-top: -3px;
   border-radius: 50%;
   background: var(--accent-strong);
-  box-shadow: 0 0 8px var(--accent);
   animation: flowDot 1.6s linear infinite;
   animation-delay: var(--d, 0s);
 }
@@ -318,7 +320,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
   height: auto;
   min-height: 16px;
   align-self: center;
-  background: linear-gradient(180deg, rgba(34, 211, 238, 0.15), rgba(34, 211, 238, 0.5));
+  background: linear-gradient(180deg, rgba(192, 118, 74, 0.2), rgba(192, 118, 74, 0.65));
 }
 .flow.vertical .flow-link::after {
   left: 50%;
@@ -352,7 +354,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
     width: 2px;
     height: auto;
     min-height: 16px;
-    background: linear-gradient(180deg, rgba(34, 211, 238, 0.15), rgba(34, 211, 238, 0.5));
+    background: linear-gradient(180deg, rgba(192, 118, 74, 0.2), rgba(192, 118, 74, 0.65));
   }
   .flow:not(.keep-h) .flow-link::after {
     left: 50%;
@@ -365,7 +367,7 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
 
 /* hardware-module card: traces light up on hover/focus */
 .module .trace {
-  stroke: rgba(34, 211, 238, 0.22);
+  stroke: rgba(192, 118, 74, 0.3);
   transition:
     stroke 0.3s ease,
     filter 0.3s ease;
@@ -373,7 +375,6 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
 .module:hover .trace,
 .module:focus-within .trace {
   stroke: var(--accent-strong);
-  filter: drop-shadow(0 0 4px var(--accent));
 }
 .module .trace-dash {
   stroke-dasharray: 6 8;
@@ -407,4 +408,11 @@ html:not([data-section="home"]):not([data-section=""]) .scene-vignette {
   .flow-link::after {
     display: none;
   }
+}
+
+/* editorial display face for headings */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.012em;
 }

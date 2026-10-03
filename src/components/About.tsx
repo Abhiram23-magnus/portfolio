@@ -24,7 +24,7 @@ export default function About() {
     >
       <div className="grid gap-6 lg:grid-cols-[1.15fr_1fr]">
         <div className="panel p-6 sm:p-8">
-          <p className="text-base leading-relaxed text-[#d5e1ea] sm:text-[1.05rem]">{profile.summary}</p>
+          <p className="text-base leading-relaxed text-[#DAD6CA] sm:text-[1.05rem]">{profile.summary}</p>
 
           <ul className="mt-6 flex flex-wrap gap-2" aria-label="Focus areas">
             {focus.map((f) => (

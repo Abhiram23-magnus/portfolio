@@ -19,11 +19,10 @@ export default function Hero() {
 
         <h1
           id="hero-title"
-          className="mt-5 text-[2.6rem] font-semibold uppercase leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+          className="font-display mt-5 text-[3.4rem] leading-[0.96] sm:text-7xl lg:text-[6.5rem]"
         >
-          Bikkina Abhiram
-          <br />
-          <span className="text-[color:var(--accent-strong)]">Choudhary</span>
+          Bikkina Abhiram{" "}
+          <span className="italic text-[color:var(--accent)]">Choudhary</span>
         </h1>
 
         <p className="mt-5 text-xl font-medium text-white sm:text-2xl">{profile.title}</p>
@@ -31,7 +30,7 @@ export default function Hero() {
           {profile.subtitle} · {profile.location}
         </p>
 
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-[#c4d2dd] sm:text-lg">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-[#C9C5B8] sm:text-lg">
           {profile.pitch}
         </p>
 
