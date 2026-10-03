@@ -27,8 +27,8 @@ export default function Contact() {
               <span className="text-[color:var(--accent-strong)]">EMBEDDED / FIRMWARE OPPORTUNITIES</span>
             </p>
             <p>
-              <span className="text-[color:var(--muted)]">&gt;</span> TARGET ROLES: Embedded Software &amp;
-              Firmware Engineer
+              <span className="text-[color:var(--muted)]">&gt;</span>{" "}
+              TARGET ROLES: Embedded Software &amp; Firmware Engineer
             </p>
             <p>
               <span className="text-[color:var(--muted)]">&gt;</span> LOCATION: {profile.location}
