@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design skills are installed globally in ~/.claude/skills
+.claude/skills/
